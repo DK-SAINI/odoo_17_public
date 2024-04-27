@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <record id="view_sale_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="after">
+                    <field name="pending_qty" readonly="1"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+
+         <record id="view_sale_order_tree_inherit" model="ir.ui.view">
+            <field name="name">sale.order.tree.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//tree" position="inside">
+                    <field name="total_pending_qty"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

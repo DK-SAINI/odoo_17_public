@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+	<t t-name="display_two_warehouses_stock.InheritBomOverviewLine" t-inherit="mrp.BomOverviewLine" t-inherit-mode="extension">
+		<xpath expr="//td[5]" position="after">
+			<td t-if="showAvailabilities" class="text-end">
+                <t t-esc="this.state.wh2QtyTotal"/>
+			</td>
+		</xpath>
+	</t>
+
+</templates>

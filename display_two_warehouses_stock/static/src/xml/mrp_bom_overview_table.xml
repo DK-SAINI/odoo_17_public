@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+	<t t-name="display_two_warehouses_stock.InheritBomOverviewTable" t-inherit="mrp.BomOverviewTable" t-inherit-mode="extension">
+		<xpath expr="//th[4]" position="after">
+			<th class="text-end" t-if="showAvailabilities" title="Stock In WH2.">Stock In WH2</th>
+		</xpath>
+
+	</t>
+
+</templates>
