@@ -1,0 +1,74 @@
+<odoo>
+    <template id="website_package_type_plans" name="Package Plans">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+
+                <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24" data-vcss="001" data-snippet="s_title" data-scroll-background-ratio="1">
+                    <span class="s_parallax_bg oe_img_bg" style="background-image: url('/web/image/website.s_parallax_default_image'); background-position: 50% 0;"/>
+                    <div class="o_we_bg_filter bg-black-50"/>
+                    <div class="container">
+                        <h1>Fill Yours Details</h1>
+                    </div>
+                </section>
+
+                <section class="s_text_block pt40 pb40 o_colored_level " data-snippet="s_text_block">
+                    <div class="container s_allow_columns">
+                        <div class="row">
+                            <div class="col-lg-8 mt-4 mt-lg-0">
+                                
+                                <p>
+                                    Please enter your details in the form below and
+                                    we will get back to you as soon as possible.
+                                </p>
+
+                                <section>
+                                    <div class="container">
+                                        <form id="quote_request_form" action="/submit_package" method="post">
+                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                            <!-- Plan Select Inpute -->
+                                            <input type="hidden" name="plan_type" t-att-value="plan_name"/>
+
+                                            <div class="row col-md-10">
+                                                
+                                                <div class="col-md-12 mb-3">
+                                                    <label for="update1" class="form-label">Name<span class="text-danger">*</span></label>
+                                                    <input id="update1" type="text" class="form-control" name="name" required="required"/>
+                                                </div>
+
+                                                <div class="col-md-12 mb-3">
+                                                    <label for="update2" class="form-label">Email<span class="text-danger">*</span></label>
+                                                    <input id="update2" type="email" class="form-control" name="email" required="required"/>
+                                                </div>
+
+                                                <div class="col-md-12 mb-3">
+                                                    <label for="update3" class="form-label">Mobile Number<span class="text-danger">*</span></label>
+                                                    <input id="update3" type="text" class="form-control" name="phone" required="required"/>
+                                                </div>
+
+                                                <!-- <div class="col-12 mb-3">
+                                                    <label for="update4" class="form-label">Description<span class="text-danger">*</span></label>
+                                                    <textarea id="update4" class="form-control s_website_form_input" name="reason" required="required"/>
+                                                </div>
+ -->
+
+                                                <div class="mb-0 py-2 col-12 s_website_form_submit" data-name="Submit Button">
+                                                    <div style="width: 200px;" class="s_website_form_label"/>
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                    <span id="s_website_form_result"></span>
+                                                </div>
+
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </section>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>
+
