@@ -7,17 +7,18 @@ from odoo.http import request, Controller, route
 
 class PackageTypes(http.Controller):
     @http.route(
-        ["/one-plan", "/second-plan", "/third-plan"], auth="public", website=True
+        ["/one-plan", "/second-plan", "/third-plan", "/fourth-plan"], auth="public", website=True
     )
     def show_plan(self, **kw):
         plan_map = {
-            "/one-plan": "1-plan",
-            "/second-plan": "2-plan",
-            "/third-plan": "3-plan",
+            "/one-plan": ["Basic Package", 6999, "Maternity"],
+            "/second-plan": ["Standard Package", 9499, "Maternity"],
+            "/third-plan": ["Premium Package", 12499, "Maternity"],
+            "/fourth-plan": ["Superior Package", 15999, "Maternity"],
         }
         plan_name = plan_map.get(request.httprequest.path)
         return request.render(
-            "little_angels_farm_studio.website_package_type_plans", {"plan_name": plan_name}
+            "little_angels_farm_studio.website_package_type_new1_plans", {"plan_name": plan_name}
         )
 
 

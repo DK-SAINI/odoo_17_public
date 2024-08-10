@@ -1,5 +1,5 @@
 <odoo>
-    <template id="website_package_type_plans" name="Package Plans">
+    <template id="website_package_type_new1_plans" name="Package Plans">
         <t t-call="website.layout">
             <div id="wrap" class="oe_structure oe_empty">
 
@@ -11,9 +11,9 @@
                     </div>
                 </section>
 
-                <section class="s_text_block pt40 pb40 o_colored_level " data-snippet="s_text_block">
+                <section class="s_text_block pt40 pb40 o_colored_level " data-snippet="s_text_block" style="background-color: #FFF7BE;">
                     <div class="container s_allow_columns">
-                        <div class="row">
+                        <div class="row justify-content-center">
                             <div class="col-lg-8 mt-4 mt-lg-0">
                                 
                                 <p>
@@ -25,10 +25,19 @@
                                     <div class="container">
                                         <form id="quote_request_form" action="/submit_package" method="post">
                                             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                                            <!-- Plan Select Inpute -->
-                                            <input type="hidden" name="plan_type" t-att-value="plan_name"/>
 
                                             <div class="row col-md-10">
+                                                 <input id="update06" type="hidden" class="form-control" name="plan_category" t-att-value="plan_name[2]" readonly="True"/>
+
+                                                <div class="col-md-12 mb-3">
+                                                    <label for="update1" class="form-label">Package<span class="text-danger">*</span></label>
+                                                    <input id="update01" type="text" class="form-control" name="plan_type" t-att-value="plan_name[0]" readonly="True"/>
+                                                </div>
+
+                                                <div class="col-md-12 mb-3">
+                                                    <label for="update1" class="form-label">Price<span class="text-danger">*</span></label>
+                                                    <input id="update02" type="text" class="form-control" name="plan_price" t-att-value="plan_name[1]" readonly="True"/>
+                                                </div>
                                                 
                                                 <div class="col-md-12 mb-3">
                                                     <label for="update1" class="form-label">Name<span class="text-danger">*</span></label>
@@ -45,11 +54,11 @@
                                                     <input id="update3" type="text" class="form-control" name="phone" required="required"/>
                                                 </div>
 
-                                                <!-- <div class="col-12 mb-3">
+                                                <div class="col-12 mb-3">
                                                     <label for="update4" class="form-label">Description<span class="text-danger">*</span></label>
                                                     <textarea id="update4" class="form-control s_website_form_input" name="reason" required="required"/>
                                                 </div>
- -->
+ 
 
                                                 <div class="mb-0 py-2 col-12 s_website_form_submit" data-name="Submit Button">
                                                     <div style="width: 200px;" class="s_website_form_label"/>
