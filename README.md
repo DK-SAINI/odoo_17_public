@@ -19,3 +19,7 @@
 5. **split_po_line**
    - Adds a button in Purchase Quotation to split PO lines.
    - Opens a wizard to display PO lines. If two lines are selected and "OK" is pressed, the lines are split into a new PO.
+
+6. **website_category_search_bar**
+   - Add New search bar For Only Product category Search.
+   - Remove Product Search Bar From Shop Page on website.
