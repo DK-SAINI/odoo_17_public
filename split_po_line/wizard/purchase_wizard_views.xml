@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="purchase_form_wizard">
+            <field name="name">purchase.wizard.form</field>
+            <field name="model">purchase.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <!-- <field name="po_id"/> -->
+                        <field name="po_lines" widget="many2many_tags"/>
+                    </group>
+                    <footer>
+                        <button name="create_po" type="object" string="Create PO" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="x"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="purchase_form_wizard_action_window">
+            <field name="name">Split Purchase Order</field>
+            <field name="res_model">purchase.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

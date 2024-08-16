@@ -1,0 +1,16 @@
+<!-- scheduled_action_data.xml -->
+<odoo>
+    <data>
+        <!-- Scheduled Action to Send Quotation Merge Emails -->
+        <record id="ir_cron_quotation_merge_email" model="ir.cron">
+            <field name="name">Send Quotation Merge Emails</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="state">code</field>
+            <field name="code">model._send_quotation_merge_email()</field>
+            <field name="interval_type">days</field>
+            <field name="interval_number">1</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+    </data>
+</odoo>

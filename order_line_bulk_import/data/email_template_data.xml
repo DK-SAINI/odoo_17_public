@@ -1,0 +1,27 @@
+<!-- email_template_data.xml -->
+<odoo>
+    <data>
+        <!-- Quotation Merge Email Template -->
+        <record id="quotation_merge_email_template" model="mail.template">
+            <field name="name">Quotation Merge Notification</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="subject">Quotation Lines Merged in Order ${object.name}</field>
+            <field name="email_from">{{ user.email or '' }}</field>
+            <field name="email_to">{{ object.partner_id.email }}</field>
+            <field name="email_cc">{{ object.user_id.email }}</field>
+            <field name="body_html" type="html">
+                
+                    <p>Dear {{object.partner_id.name}},</p>
+                    <p>The following products have been merged in your quotation <strong>{{object.name}}</strong>:</p>
+                    <ul>
+                        % for line in object.merged_data:
+                        <li>{{line.product_name}}: Merged Qty - {{line.merged_qty}}</li>
+                        % endfor
+                    </ul>
+                    <p>Best regards,</p>
+                    <p>{{user.name}}</p>
+            </field>
+            <field name="model" ref="sale.model_sale_order"/>
+        </record>
+    </data>
+</odoo>

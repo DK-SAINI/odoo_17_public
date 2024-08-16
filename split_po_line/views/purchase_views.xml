@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="purchase_order_form_mrp" model="ir.ui.view">
+            <field name="name">purchase.order.inherited.form.mrp</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header/button[@name='button_draft']" position="after">
+                    <button name="%(split_po_line.purchase_form_wizard_action_window)d" invisible="state != 'draft'" string="Create New PO" type="action"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

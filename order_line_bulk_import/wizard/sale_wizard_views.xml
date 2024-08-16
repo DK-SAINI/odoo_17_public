@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_order_bulk_upload_wizard" model="ir.ui.view">
+        <field name="name">quotation.bulk.upload.wizard.form</field>
+        <field name="model">quotation.bulk.upload</field>
+        <field name="arch" type="xml">
+            <form string="Bulk Upload Products">
+                
+                <notebook>
+                    <page string="Order Lines">
+                        <field name="line_ids" string="Select Products" widget="section_and_note_one2many" mode="tree">
+                            <tree editable="bottom" >
+                                <field name="product_ids" widget="many2many_tags" />
+                                <field name="quantity" />
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+                <footer>
+                    <button name="action_bulk_upload" string="Upload" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sale_order_bulk_upload_wizard" model="ir.actions.act_window">
+        <field name="name">Bulk Upload</field>
+        <field name="res_model">quotation.bulk.upload</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_sale_order_bulk_upload_wizard"/>
+    </record>
+
+</odoo>
