@@ -23,3 +23,7 @@
 6. **website_category_search_bar**
    - Add New search bar For Only Product category Search.
    - Remove Product Search Bar From Shop Page on website.
+
+7. **systray_partner_search**
+   - Add New search bar For Partner in Systray.
+   - Using this module you can Quick Search partner from navbar.

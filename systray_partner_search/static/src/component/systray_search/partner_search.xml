@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="systray_partner_search.PartnerSearch">
+        <div class="o-dropdown dropdown o-mail-DiscussSystray-class o-dropdown--no-caret" t-att-class="{ 'd-none': !state.isHide }">
+            <AutoComplete
+                value="state.value"
+                placeholder="placeholder"
+                onSelect="(option) => this.onSelect(option)"
+                sources="sources"
+            />
+        </div>
+    </t>
+</templates>
+
