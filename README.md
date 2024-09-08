@@ -27,3 +27,7 @@
 7. **systray_partner_search**
    - Add New search bar For Partner in Systray.
    - Using this module you can Quick Search partner from navbar.
+
+8. **owl_framework**
+   - Add Owl Dashboard.
+   - Add Counter Functionality With New Menu Item.

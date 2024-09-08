@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+
+        <record model="ir.actions.client" id="dashboard_client_action">
+            <field name="name">Dashboard</field>
+            <field name="tag">owl_framework.dashboard</field>
+        </record>
+
+        <record model="ir.actions.client" id="counter_client_action">
+            <field name="name">Dashboard</field>
+            <field name="tag">owl_framework.counter</field>
+        </record>
+    
+        <!-- Top menu item -->
+        <menuitem name="Owl Dashboard" id="menu_root"/>
+
+        <!-- actions -->
+        <menuitem 
+            name="Dashboard" 
+            id="dashboard_child_menu"
+            parent="owl_framework.menu_root"
+            action="owl_framework.dashboard_client_action"
+            sequence="1"
+        />
+
+        <menuitem 
+            name="Counter" 
+            id="counter_menu"
+            parent="owl_framework.menu_root"
+            action="owl_framework.counter_client_action"
+            sequence="2"
+        />
+
+    </data>
+</odoo>

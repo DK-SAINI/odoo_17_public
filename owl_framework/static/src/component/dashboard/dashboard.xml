@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+   <t t-name="owl_framework.dashboard">
+      <div class="dashboard d-flex flex-column vh-100" t-att-class="state.darkMode ? 'bg-dark text-light' : 'bg-light text-dark'">
+         <!-- Header Section -->
+         <header class="py-3 border-bottom">
+            <div class="container-fluid">
+               <div class="row align-items-center">
+                  <div class="col-md-3">
+                     <img src="/owl_framework/static/src/img/tag-owl.webp" alt="Company Logo" class="img-fluid" style="max-height: 40px;"/>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Quick search..."/>
+                        <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
+                     </div>
+                  </div>
+                  <div class="col-md-3 text-end">
+                     <img src="/path/to/avatar.png" alt="User Avatar" class="rounded-circle me-2" style="width: 40px; height: 40px;"/>
+                     <span class="me-2">John Doe</span>
+                     <button class="btn btn-sm btn-outline-secondary me-2"><i class="fa fa-cog"></i></button>
+                     <button class="btn btn-sm btn-outline-secondary"><i class="fa fa-bell"></i></button>
+                  </div>
+               </div>
+            </div>
+         </header>
+
+         <!-- Main Content Area -->
+         <div class="flex-grow-1 overflow-hidden">
+            <div class="container-fluid h-100">
+               <div class="row h-100">
+                  <!-- Sidebar Navigation -->
+                  <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse h-100 overflow-auto border-end">
+                     <div class="position-sticky pt-3">
+                        <ul class="nav flex-column">
+                           <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-home me-2"></i> Overview</a></li>
+                           <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-chart-line me-2"></i> Sales</a></li>
+                           <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-users me-2"></i> Customers</a></li>
+                           <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-file-alt me-2"></i> Reports</a></li>
+                           <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-cog me-2"></i> Settings</a></li>
+                        </ul>
+                     </div>
+                  </nav>
+
+                  <!-- Main Dashboard Content -->
+                  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 h-100 overflow-auto pb-5">
+                     <!-- User Filters -->
+                     <div class="row my-3">
+                        <div class="col-md-4 mb-2">
+                           <select class="form-select"><option>Date Range</option></select>
+                        </div>
+                        <div class="col-md-4 mb-2">
+                           <select class="form-select"><option>Region</option></select>
+                        </div>
+                        <div class="col-md-4 mb-2">
+                           <select class="form-select"><option>Product Category</option></select>
+                        </div>
+                     </div>
+
+                     <!-- Key Metrics Overview -->
+                     <div class="row mb-4">
+                        <t t-foreach="[
+                           {name: 'Total Revenue', value: '$1.2M', trend: '+5%'},
+                           {name: 'Active Users', value: '15.3K', trend: '+2%'},
+                           {name: 'Customer Satisfaction', value: '4.8', trend: '+0.2'},
+                           {name: 'Sales Growth', value: '12%', trend: '+3%'}
+                        ]" t-as="kpi" t-key="kpi_index">
+                           <div class="col-md-3 mb-4">
+                              <div class="card h-100" t-att-class="state.darkMode ? 'bg-secondary text-light' : ''">
+                                 <div class="card-body">
+                                    <h5 class="card-title"><t t-esc="kpi.name"/></h5>
+                                    <p class="card-text display-6"><t t-esc="kpi.value"/></p>
+                                    <p class="card-text text-success"><t t-esc="kpi.trend"/></p>
+                                 </div>
+                              </div>
+                           </div>
+                        </t>
+                     </div>
+
+                     <!-- Interactive Charts -->
+                     <div class="row mb-4">
+                        <div class="col-md-6 mb-4">
+                           <div class="card h-100" t-att-class="state.darkMode ? 'bg-secondary text-light' : ''">
+                              <div class="card-body">
+                                 <h5 class="card-title">Sales Performance</h5>
+                                 <!-- <div class="chart-placeholder" style="height: 300px;"></div> -->
+                                 <canvas t-ref="chart" width="400" height="200"></canvas>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                           <div class="card h-100" t-att-class="state.darkMode ? 'bg-secondary text-light' : ''">
+                              <div class="card-body">
+                                 <h5 class="card-title">User Engagement</h5>
+                                 <!-- <div class="chart-placeholder" style="height: 300px;"></div> -->
+                                 <!-- <canvas t-ref="chart" width="400" height="200"></canvas> -->
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <!-- Recent Activity -->
+                     <div class="card mb-4" t-att-class="state.darkMode ? 'bg-secondary text-light' : ''">
+                        <div class="card-body">
+                           <h5 class="card-title">Recent Activity</h5>
+                           <div class="table-responsive">
+                              <table class="table" t-att-class="state.darkMode ? 'table-dark' : ''">
+                                 <thead>
+                                    <tr>
+                                       <th>Date</th>
+                                       <th>Activity</th>
+                                       <th>User</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr t-foreach="[1, 2, 3, 4, 5]" t-as="activity" t-key="activity">
+                                       <td>2023-05-<t t-esc="activity.toString().padStart(2, '0')"/></td>
+                                       <td>Activity <t t-esc="activity"/></td>
+                                       <td>User <t t-esc="activity"/></td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </main>
+                  
+               </div>
+            </div>
+         </div>
+
+         <!-- Dark Mode Toggle -->
+         <div class="position-fixed bottom-0 end-0 p-3">
+            <div class="form-check form-switch">
+               <input class="form-check-input" type="checkbox" id="darkModeSwitch" t-on-change="toggleDarkMode" t-att-checked="state.darkMode"/>
+               <label class="form-check-label" for="darkModeSwitch">
+                  <t t-if="state.darkMode">Light Mode</t>
+                  <t t-else="">Dark Mode</t>
+               </label>
+            </div>
+         </div>
+
+         <!-- Footer -->
+         <footer class="py-3 border-top mt-auto">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-md-6 d-flex justify-content-start">
+                     <span class="text-muted">© 2023 Your Company. All rights reserved.</span>
+                  </div>
+                  <div class="col-md-6 d-flex justify-content-end">
+                     <ul class="nav">
+                        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Privacy Policy</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Terms of Service</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact Us</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </footer>
+
+
+      </div>
+   </t>
+</templates>
