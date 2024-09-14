@@ -1,0 +1,77 @@
+<templates>
+    <t t-name="owl_framework.OverviewComponent">
+        <div class="overview-dashboard">
+            <header class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Overview Dashboard</h2>
+                <!-- <button class="btn btn-light"><i class="fa fa-bars"/></button> -->
+            </header>
+            
+            <!-- Stat Cards -->
+            <div class="row mb-4">
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card bg-primary text-white">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2">Earning</h6>
+                            <h3 class="card-title">$ 628</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted">Share</h6>
+                            <h3 class="card-title">2434</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted">Likes</h6>
+                            <h3 class="card-title">1259</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted">Rating</h6>
+                            <h3 class="card-title">8,5</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="row">
+                <div class="col-md-8 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Result</h5>
+                            <canvas t-ref="resultChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Progress</h5>
+                            <canvas t-ref="progressChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Area Chart -->
+            <div class="row">
+                <div class="col-md-12 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas t-ref="areaChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

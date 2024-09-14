@@ -1,0 +1,76 @@
+<templates>
+    <t t-name="owl_framework.SalesComponent">
+        <div class="sales-dashboard">
+            <h3>Sales Dashboard</h3>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Quotations</h5>
+                            <h3 class="card-text"><t t-esc="state.quotationCount"/></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Sales Orders</h5>
+                            <h3 class="card-text"><t t-esc="state.saleOrderCount"/></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Top 10 Customers</h5>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Customer</th>
+                                        <th>Total Sales</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="state.topCustomers" t-as="customer" t-key="customer.id">
+                                        <tr>
+                                            <td><t t-esc="customer.name"/></td>
+                                            <td><t t-esc="customer.total_sales"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Top 10 Sale Orders</h5>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Order</th>
+                                        <th>Customer</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="state.topSaleOrders" t-as="order" t-key="order.id">
+                                        <tr>
+                                            <td><t t-esc="order.name"/></td>
+                                            <td><t t-esc="order.partner_id[1]"/></td>
+                                            <td><t t-esc="order.amount_total"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

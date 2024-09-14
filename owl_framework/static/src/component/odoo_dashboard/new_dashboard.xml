@@ -1,112 +1,56 @@
 <templates>
-    <div t-name="owl_framework.NewDashboard" class="d-flex h-100">
+    <div t-name="owl_framework.NewDashboard" class="d-flex h-100 overflow-hidden">
         <!-- Sidebar -->
         <aside class="dashboard-sidebar bg-dark text-white" style="width: 250px;">
             <div class="user-profile text-center p-4">
-                <img src="/web/image/res.users/avatar" alt="User Avatar" class="rounded-circle mb-3" width="80" height="80"/>
+                <img src="/owl_framework/static/src/img/tag-owl.webp" alt="User Avatar" class="rounded-circle mb-3" width="80" height="80"/>
                 <h5>JOHN DON</h5>
                 <p class="small">johndon@company.com</p>
             </div>
             <nav class="mt-4">
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a href="#" class="nav-link text-white"><i class="fa fa-home me-2"/>home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-white"><i class="fa fa-file me-2"/>file</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-white"><i class="fa fa-envelope me-2"/>messages</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-white"><i class="fa fa-bell me-2"/>notification</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-white"><i class="fa fa-map-marker me-2"/>location</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-white"><i class="fa fa-chart-bar me-2"/>graph</a></li>
+                    <li class="nav-item">
+                        <a href="#" t-attf-class="nav-link {{ state.activeTab === 'overview' ? 'text-white' : 'text-info' }}" t-on-click="() => this.setActiveTab('overview')">
+                            <i class="fa fa-home me-2"/>Overview
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" t-attf-class="nav-link {{ state.activeTab === 'sales' ? 'text-white' : 'text-info' }}" t-on-click="() => this.setActiveTab('sales')">
+                            <i class="fa fa-file me-2"/>Sales
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" t-attf-class="nav-link {{ state.activeTab === 'accounts' ? 'text-white' : 'text-info' }}" t-on-click="() => this.setActiveTab('accounts')">
+                            <i class="fa fa-envelope me-2"/>
+                            Accounts
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" t-attf-class="nav-link {{ state.activeTab === 'inventory' ? 'text-white' : 'text-info' }}" t-on-click="() => this.setActiveTab('inventory')">
+                            <i class="fa fa-bell me-2"/>
+                            Inventory
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" t-attf-class="nav-link {{ state.activeTab === 'purchases' ? 'text-white' : 'text-info' }}" t-on-click="() => this.setActiveTab('purchases')">
+                            <i class="fa fa-map-marker me-2"/>
+                            Purchases
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </aside>
 
         <!-- Main Content -->
-        <main class="dashboard-content flex-grow-1 bg-light p-4">
-            <header class="d-flex justify-content-between align-items-center mb-4">
-                <h2>Dashboard User</h2>
-                <button class="btn btn-light"><i class="fa fa-bars"/></button>
-            </header>
+        <main class="dashboard-content flex-grow-1 bg-light p-4 overflow-auto">
+        
+            <t t-if="state.activeTab === 'overview'">
+                <OverviewComponent/>
+            </t>
+            <t t-if="state.activeTab === 'sales'">
+                <SalesComponent/>
+            </t>
 
-            <!-- Stat Cards -->
-            <div class="row mb-4">
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card bg-primary text-white">
-                        <div class="card-body">
-                            <h6 class="card-subtitle mb-2">Earning</h6>
-                            <h3 class="card-title">$ 628</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-muted">Share</h6>
-                            <h3 class="card-title">2434</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-muted">Likes</h6>
-                            <h3 class="card-title">1259</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-muted">Rating</h6>
-                            <h3 class="card-title">8,5</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Charts -->
-            <div class="row">
-                <div class="col-md-8 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Result</h5>
-                            <canvas t-ref="resultChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Progress</h5>
-                            <canvas t-ref="progressChart"></canvas>
-                            <ul class="list-unstyled mt-3">
-                                <li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
-                            </ul>
-                            <button class="btn btn-warning mt-3">Check Now</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Area Chart and Calendar -->
-            <div class="row">
-                <div class="col-md-8 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <canvas t-ref="areaChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <!-- Placeholder for calendar component -->
-                            <div id="calendar"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </main>
     </div>
 </templates>

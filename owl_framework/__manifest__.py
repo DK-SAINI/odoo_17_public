@@ -5,7 +5,7 @@
     "author": "Dk Company",
     "website": "https://www.yourcompany.com",
     "version": "17.0.0.1",
-    "depends": ["base"],
+    "depends": ["base", "sale_management"],
     "data": [
         # 'security/ir.model.access.csv',
         "views/menu.xml",
