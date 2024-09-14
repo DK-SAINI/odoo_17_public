@@ -7,8 +7,28 @@
         </record>
 
         <record model="ir.actions.client" id="counter_client_action">
-            <field name="name">Dashboard</field>
+            <field name="name">Counter</field>
             <field name="tag">owl_framework.counter</field>
+        </record>
+
+        <record model="ir.actions.client" id="components_client_action">
+            <field name="name">Components</field>
+            <field name="tag">owl_framework.root_playground</field>
+        </record>
+
+        <record model="ir.actions.client" id="inline_template_client_action">
+            <field name="name">Inline Template</field>
+            <field name="tag">owl_framework.inline_template</field>
+        </record>
+
+        <record model="ir.actions.client" id="card_client_action">
+            <field name="name">Card</field>
+            <field name="tag">owl_framework.card</field>
+        </record>
+
+        <record model="ir.actions.client" id="new_dashboard_client_action">
+            <field name="name">New Dashboard</field>
+            <field name="tag">odoo_dashboard.new_dashboard</field>
         </record>
     
         <!-- Top menu item -->
@@ -31,5 +51,43 @@
             sequence="2"
         />
 
+        <menuitem 
+            name="Owl Playground" 
+            id="playground_menu"
+            parent="owl_framework.menu_root"
+            sequence="2"
+        />
+
+        <menuitem 
+            name="Components" 
+            id="components_menu"
+            parent="owl_framework.playground_menu"
+            action="owl_framework.components_client_action"
+            sequence="1"
+        />
+
+        <menuitem 
+            name="Inline Template" 
+            id="inline_template_menu"
+            parent="owl_framework.playground_menu"
+            action="owl_framework.inline_template_client_action"
+            sequence="2"
+        />
+
+        <menuitem 
+            name="Card" 
+            id="card_menu"
+            parent="owl_framework.playground_menu"
+            action="owl_framework.card_client_action"
+            sequence="3"
+        />
+
+        <menuitem 
+            name="New Dashboard" 
+            id="new_dashboard_menu"
+            parent="owl_framework.playground_menu"
+            action="owl_framework.new_dashboard_client_action"
+            sequence="4"
+        />  
     </data>
 </odoo>

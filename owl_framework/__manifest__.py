@@ -11,9 +11,12 @@
         "views/menu.xml",
     ],
     "assets": {
+        # 'web.assets_frontend': {
+        # },
         "web.assets_backend": {
             "/owl_framework/static/src/component/*/*.js",
             "/owl_framework/static/src/component/*/*.xml",
+            "/owl_framework/static/src/component/*/*.css",
         },
     },
 }

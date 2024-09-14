@@ -1,0 +1,36 @@
+<templates>
+    <!-- card component -->
+    <div t-name="owl_framework.Card">
+        <div t-name="Card" class="card" t-att-class="state.showContent ? 'full' : 'small'">
+            <div class="card-title">
+                <t t-esc="props.title"/><button t-on-click="toggleDisplay">Toggle</button>
+            </div>
+            
+            <t t-if="state.showContent">
+                <div class="card-body" >
+                    <t t-slot="content"/>
+                </div>
+                <div class="card-footer">
+                    <t t-slot="footer"/>
+                </div>
+            </t>
+
+        </div>
+    </div>
+    <!-- Root Component -->
+    <div t-name="owl_framework.Root1" class="main">
+        <Card title="'Title card A'">
+            <t t-set-slot="content">
+                <Counter />
+            </t>
+        </Card>
+
+        <Card title="'Title card B'">
+            <t t-set-slot="content">
+                <Counter />
+            </t>
+
+        </Card>
+    </div>
+
+</templates>    
