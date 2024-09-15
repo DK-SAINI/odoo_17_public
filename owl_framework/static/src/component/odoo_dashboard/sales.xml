@@ -1,7 +1,10 @@
 <templates>
     <t t-name="owl_framework.SalesComponent">
         <div class="sales-dashboard">
-            <h3>Sales Dashboard</h3>
+            <header class="d-flex justify-content-between align-items-center mb-4">
+                <h3>Sales Dashboard</h3>
+            </header>
+            
             <div class="row mb-4">
                 <div class="col-md-6">
                     <div class="card">

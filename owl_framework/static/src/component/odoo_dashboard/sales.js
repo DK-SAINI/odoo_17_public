@@ -1,6 +1,7 @@
 /** @odoo-module **/
 
 import { Component, useState, onWillStart } from "@odoo/owl";
+import { useService } from "@web/core/utils/hooks";
 
 export class SalesComponent extends Component {
     setup() {
@@ -10,6 +11,8 @@ export class SalesComponent extends Component {
             topCustomers: [],
             topSaleOrders: [],
         });
+        
+        this.orm = useService("orm");
 
         onWillStart(async () => {
             await this.fetchSalesData();
@@ -18,11 +21,14 @@ export class SalesComponent extends Component {
 
     async fetchSalesData() {
         try {
-            const result = await this.env.services.rpc({
-                model: 'sale.order',
-                method: 'get_sales_dashboard_data',
-                args: [],
-            });
+            // const result = await this.env.services.rpc({
+            //     model: 'sale.order',
+            //     method: 'get_sales_dashboard_data',
+            //     args: [],
+            // });
+
+            const result = await this.orm.call('sale.order', 'get_sales_dashboard_data', []);
+            console.log("===========>", result)
             
             this.state.quotationCount = result.quotation_count;
             this.state.saleOrderCount = result.sale_order_count;

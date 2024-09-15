@@ -20,7 +20,7 @@ class SaleOrder(models.Model):
             limit=10,
             orderby='amount_total desc'
         )
-        print("===========================>", top_customers)
+        print("=========___________==================>", top_customers)
         top_customers = [{'id': c['partner_id'][0], 'name': c['partner_id'][1], 'total_sales': c['amount_total']} for c in top_customers]
 
         # Get top 10 sale orders
