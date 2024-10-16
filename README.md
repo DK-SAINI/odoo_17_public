@@ -35,4 +35,4 @@
 9. **icon_picker_widget**
    - Add new widget for icon picker.
    - Field type must be char.
-   - <field name="icon" widget="icon_picker"/>
+   - field name="icon" widget="icon_picker"/>
