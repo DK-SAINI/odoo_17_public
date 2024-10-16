@@ -31,3 +31,8 @@
 8. **owl_framework**
    - Add Owl Dashboard.
    - Add Counter Functionality With New Menu Item.
+
+9. **icon_picker_widget**
+   - Add new widget for icon picker.
+   - Field type must be char.
+   - <field name="icon" widget="icon_picker"/>

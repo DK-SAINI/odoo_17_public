@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="icon_picker_widget.IconPickerField">
+        <div class="d-flex align-items-center">
+            <!-- Input field for the icon class -->
+            <input 
+                type="text"
+                t-model="state.icon" 
+                readonly="readonly" 
+                class="o_input" 
+                placeholder="Icon class will appear here"
+                style="width: 160px;"
+            />
+
+            <!-- Button to pick the icon -->
+            <button t-on-click="onClickIconPicker" class="btn btn-primary me-4">
+                Pick an Icon
+            </button>
+
+            <!-- Icon preview -->
+            <t t-if="state.icon">
+                <div class="icon-box d-flex justify-content-center align-items-center">
+                    <span t-attf-class="fa {{state.icon}} fa-lg"></span>
+                </div>
+            </t>
+            
+        </div>
+    </t>
+</templates>

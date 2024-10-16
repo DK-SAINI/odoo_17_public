@@ -1,0 +1,7 @@
+.icon-box {
+    width: 40px;   /* Width of the square box */
+    height: 40px;  /* Height of the square box */
+    border: 1px solid #ccc;  /* Border around the box */
+    border-radius: 4px;  /* Slightly rounded corners */
+    text-align: center;  /* Center the icon horizontally */
+}
