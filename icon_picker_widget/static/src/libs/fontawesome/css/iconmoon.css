@@ -1,0 +1,81 @@
+@font-face {
+  font-family: 'icomoon';
+    src: url('../font/icomoon.eot?b2tfuu');
+    src: url('../font/icomoon.eot?b2tfuu#iefix') format('embedded-opentype'),
+         url('../font/icomoon.ttf?b2tfuu') format('truetype'),
+         url('../font/icomoon.woff?b2tfuu') format('woff'),
+         url('../font/icomoon.svg?b2tfuu#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+/*    font-display: block;*/
+}
+
+[class^="fa-icon-"], [class*=" fa-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-icon-spades:before {
+  content: "\e917";
+}
+.fa-icon-clubs:before {
+  content: "\e918";
+}
+.fa-icon-diamonds:before {
+  content: "\e919";
+}
+.fa-icon-bullhorn:before {
+  content: "\e91a";
+}
+.fa-icon-connection:before {
+  content: "\e91b";
+}
+.fa-icon-podcast:before {
+  content: "\e91c";
+}
+.fa-icon-feed:before {
+  content: "\e91d";
+}
+.fa-icon-mic:before {
+  content: "\e91e";
+}
+.fa-icon-wink:before {
+  content: "\e9e7";
+}
+.fa-icon-wink2:before {
+  content: "\e9e8";
+}
+.fa-icon-grin:before {
+  content: "\e9e9";
+}
+.fa-icon-hipster:before {
+  content: "\e9f9";
+}
+.fa-icon-youtube2:before {
+  content: "\ea9e";
+}
+.fa-icon-paypal:before {
+  content: "\ead8";
+}
+.fa-icon-chrome:before {
+  content: "\ead9";
+}
+.fa-icon-firefox:before {
+  content: "\eada";
+}
+.fa-icon-IE:before {
+  content: "\eadb";
+}
+.fa-icon-edge:before {
+  content: "\eadc";
+}

@@ -34,3 +34,8 @@
 
 9. **display_pricelist_price_on_products**
    - With the help of this module you can display the price of the products according to the pricelists in Product Form.
+
+10. **icon_picker_widget**
+   - Add new widget for icon picker.
+   - Field type must be char.
+   - field name="icon" widget="icon_picker"/>
