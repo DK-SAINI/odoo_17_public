@@ -31,6 +31,11 @@
 8. **owl_framework**
    - Add Owl Dashboard.
    - Add Counter Functionality With New Menu Item.
+   ![component_1](https://github.com/user-attachments/assets/57ac3130-f0f3-473a-8e25-f18b2b7a4195)
+   ![component_2](https://github.com/user-attachments/assets/ead67d61-c47b-4057-8f6a-e6fc7e02598d)
+
+
+   
 
 9. **display_pricelist_price_on_products**
    - With the help of this module you can display the price of the products according to the pricelists in Product Form.
